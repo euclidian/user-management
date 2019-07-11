@@ -1,0 +1,25 @@
+{
+    "name": "tiketux/usermanagement",
+    "authors": [
+        {
+            "name": "Muhammad Anis",
+            "email": "m.anis@3trust.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Tiketux\\UserManagement\\": "src/"
+        }
+    },
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Tiketux\\UserManagement\\UserManagementServiceProvider"
+            ]
+        }
+    },
+    "repositories": [
+        
+    ]
+}
