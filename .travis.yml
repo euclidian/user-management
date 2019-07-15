@@ -18,7 +18,9 @@ jobs:
       QUEUE_DRIVER: database
 
     services: 
-      - mysql
+      - name: mysql:5.6
+        alias: mysqlinit
+
 
     before_script:  
       - shopt -s extglob
