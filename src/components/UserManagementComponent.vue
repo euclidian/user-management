@@ -63,7 +63,6 @@ export default {
           "user_id" : params
         })
         .then(response => {
-          that.usermanagement = response.data.data;
           that.list();
         })
         .catch(error => {
