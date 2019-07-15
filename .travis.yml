@@ -41,6 +41,11 @@ jobs:
       - cp .env.example .env
       - composer config repositories.test path ../packages
       - composer install --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts    
+      - composer require laravel/passport
       - composer require tiketux/usermanagement
       - php artisan vendor:publish --tag=Migration_UserManagement
       - php artisan migrate
+      - php artisan key:generate
+      - php artisan config:cache
+      - php artisan passport:install
+
