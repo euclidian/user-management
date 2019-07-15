@@ -1,0 +1,12 @@
+language: php
+
+stages:
+  - test
+  - upgrade_minor
+  - upgrade_major
+
+jobs:
+  include:
+    - stage: test
+      script: ./test 1
+      script: ./test 2
