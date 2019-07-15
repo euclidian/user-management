@@ -3,8 +3,11 @@
 namespace Tiketux\UserManagement\Api;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\Controller;
+// use Illuminate\Support\Facades\Auth;
+use Auth;
+// use Illuminate\Support\Facades\Hash;
+use App\User;
 
 class UserManagementApi extends Controller
 {
@@ -27,7 +30,7 @@ class UserManagementApi extends Controller
         //     'user'  => $allUser,
         //     'user_level' => Auth::user()->user_level
         // ];
-  	$response = "saya";
+  	$response = Auth::user()->name;
   	
     return response()->json($response);
   }
