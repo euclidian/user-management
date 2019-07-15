@@ -7,6 +7,28 @@ stages:
 
 jobs:
   include:
-    - stage: test
-      script: ./test 1
-      script: ./test 2
+    stage: test
+    env: 
+      MYSQL_DATABASE: tiketux_package
+      MYSQL_ROOT_PASSWORD: secret
+      DB_HOST: mysqlinit
+      DB_DATABASE: tiketux_package
+      DB_USERNAME: root
+      DB_PASSWORD: secret
+      QUEUE_DRIVER: database
+
+    services: 
+      - mysql
+
+    before_script:  
+      - shopt -s extglob
+      - mkdir packages
+      - mv !(packages) packages
+      - composer create-project --prefer-dist laravel/laravel blog
+      - cd laravel
+      - cp .env.example .env
+      - composer config repositories.test path ../packages
+      - composer install --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts    
+      - composer require tiketux/usermanagement
+      - php artisan vendor:publish --tag=Migration_UserManagement
+      - php artisan migrate

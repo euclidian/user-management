@@ -16,10 +16,10 @@ class UserManagementServiceProvider extends ServiceProvider
     $this->loadRoutesFrom(__DIR__.'/routes.php');
     $this->publishes([
         __DIR__.'/migrations' => database_path('migrations'),
-    ],"Migration_Alter_Tabel_User");
+    ],"Migration_UserManagement");
     $this->publishes([
         __DIR__.'/components' => resource_path('js/components'),
-    ],"component");
+    ],"Component_UserManagement");
   }
 
   /**
