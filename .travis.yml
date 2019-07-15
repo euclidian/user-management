@@ -24,7 +24,7 @@ jobs:
       - shopt -s extglob
       - mkdir packages
       - mv !(packages) packages
-      - composer create-project --prefer-dist laravel/laravel blog
+      - composer create-project --prefer-dist laravel/laravel laravel
       - cd laravel
       - cp .env.example .env
       - composer config repositories.test path ../packages
