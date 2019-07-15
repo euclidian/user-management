@@ -21,8 +21,15 @@ jobs:
       DB_PASSWORD: ""
       QUEUE_DRIVER: database
 
-    services: 
-      - mysql:5.7
+    services:
+      - mysql
+
+    addons:
+      apt:
+        sources:
+          - mysql-5.7-trusty
+        packages:
+          - mysql-server
 
 
     before_script:  
