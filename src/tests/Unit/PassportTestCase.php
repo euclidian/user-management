@@ -25,6 +25,7 @@ class PassportTestCase extends TestCase
     {
         parent::setUp();
         config(['auth.guards.api.driver' => 'passport']);
+        config(['auth.providers.users.model' => UserManagement::class]);
         Passport::routes();
         $clientRepository = new ClientRepository();
         $client = $clientRepository->createPersonalAccessClient(
