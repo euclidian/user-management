@@ -1,5 +1,5 @@
 language: php
-
+dist: trusty
 stages:
   - test
   - upgrade_minor
