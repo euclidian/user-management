@@ -13,13 +13,16 @@ class UserManagementServiceProvider extends ServiceProvider
    */
   public function boot()
   {
-    $this->loadRoutesFrom(__DIR__.'/routes.php');
+    $this->loadRoutesFrom(__DIR__ . '/routes.php');
     $this->publishes([
-        __DIR__.'/migrations' => database_path('migrations'),
-    ],"Migration_Alter_Tabel_User");
+      __DIR__ . '/migrations' => database_path('migrations'),
+    ], "Migration_UserManagement");
     $this->publishes([
-        __DIR__.'/components' => resource_path('js/components'),
-    ],"component");
+      __DIR__ . '/components' => resource_path('js/components'),
+    ], "Component_UserManagement");
+    $this->publishes([
+      __DIR__ . '/factories' => database_path('factories'),
+    ], "Factory_UserManagement");
   }
 
   /**
@@ -28,6 +31,5 @@ class UserManagementServiceProvider extends ServiceProvider
    * @return void
    */
   public function register()
-  {
-  }
+  { }
 }

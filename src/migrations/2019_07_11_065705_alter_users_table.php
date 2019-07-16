@@ -15,7 +15,7 @@ class AlterUsersTable extends Migration
     {
         //
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('is_admin');
+            $table->boolean('is_admin');
         });
     }
 
