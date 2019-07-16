@@ -44,8 +44,12 @@ jobs:
       - composer require laravel/passport
       - composer require tiketux/usermanagement
       - php artisan vendor:publish --tag=Migration_UserManagement
+      - php artisan vendor:publish --tag=Factory_UserManagement
       - php artisan migrate
       - php artisan key:generate
       - php artisan config:cache
       - php artisan passport:install
+
+    script:
+      - php vendor/bin/phpunit vendor/tiketux/transaction
 
