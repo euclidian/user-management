@@ -3,6 +3,7 @@
 namespace Tiketux\UserManagement;
 
 use Illuminate\Support\ServiceProvider;
+use Tiketux\UserManagement\Middlewares\IsAdmin;
 
 class UserManagementServiceProvider extends ServiceProvider
 {
@@ -13,6 +14,7 @@ class UserManagementServiceProvider extends ServiceProvider
    */
   public function boot()
   {
+    app()->make('router')->aliasMiddleware('admin', IsAdmin::class);
     $this->loadRoutesFrom(__DIR__ . '/routes.php');
     $this->publishes([
       __DIR__ . '/migrations' => database_path('migrations'),

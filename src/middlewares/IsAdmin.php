@@ -3,7 +3,7 @@
 namespace Tiketux\UserManagement\Middlewares;
 
 use Closure;
-use App\Http\Controllers\Controller;
+use Tiketux\UserManagement\Base\BaseController as Controller;
 
 use Illuminate\Support\Facades\Auth;
 use Tiketux\UserManagement\Models\UserManagement;
